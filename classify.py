@@ -20,7 +20,9 @@ if SPLIT_VIDEO == True:
         shutil.rmtree(outdir)
         os.mkdir(outdir)
     
-    cmd = 'ffmpeg -i '+video+' -r 1 '+outdir+'/'+os.path.basename(video).replace('.mp4','')+'%05d.jpg'
+    fps = 3
+    
+    cmd = 'ffmpeg -i '+video+' -r ' + str(fps) + ' ' + outdir+'/'+os.path.basename(video).replace('.mp4','')+'%05d.jpg'
     
     output = subprocess.check_output(cmd, shell=True)
     
@@ -36,7 +38,7 @@ if PROCESS_IMAGES == True:
         shutil.rmtree(outdir)
         os.mkdir(outdir)
     
-    countItems = ['person','backpack']
+    countItems = ['person','backpack','handbag']
     
     import darknet
 
