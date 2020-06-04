@@ -98,11 +98,11 @@ if PROCESS_IMAGES == True:
 
 if COMPILE_VIDEO == True:
     
-    fr = 8
+    fr = 6
     indir='images_predict'
     outfile = 'results.mp4'
     
-    cmd = 'ffmpeg -framerate '+str(8)+' -pattern_type glob -y -i "'+indir+'/*.jpg" -c:v libx264 -pix_fmt yuv420p '+outfile
+    cmd = 'ffmpeg -framerate '+str(fr)+' -pattern_type glob -y -i "'+indir+'/*.jpg" -c:v libx264 -pix_fmt yuv420p '+outfile
     
     output = subprocess.check_output(cmd, shell=True)
 
